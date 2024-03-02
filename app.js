@@ -65,7 +65,7 @@ app.get('/data/url/:url', (req, res) => {
         }
 
         // Antwort mit dem gefundenen Datensatz senden
-        res.json(foundData);
+        res.status(200).json(foundData);
     });
 });
 
@@ -175,4 +175,13 @@ app.get('/open-data', (req, res) => {
 // Starte den Server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+});
+
+app.use((req, res, next) => {
+    const start = Date.now();
+    res.on('finish', () => { // 'finish' Event wird ausgelöst, wenn die Antwort vollständig gesendet wurde
+        const duration = Date.now() - start;
+        console.log(`[${new Date().toISOString()}] ${req.method} ${req.path} - ${res.statusCode} - ${duration}ms`);
+    });
+    next();
 });
