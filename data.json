@@ -1,7 +1,193 @@
-[
-    {"id": 1, "url": "google.de"},
-    {"id": 2, "url": "google.come"},
-    {"id": 3, "url": "stackoverflow.com"},
-    {"id": 4, "url": "facebook.com"}
+[{
+        "id": 1,
+        "url": "google.de",
+        "anomaly_count": 1,
+        "confirmed_count": 0,
+        "failure_count": 10,
+        "measurement_count": 14,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 0
+    },
+    {
+        "id": 2,
+        "url": "google.come",
+        "anomaly_count": 1,
+        "confirmed_count": 0,
+        "failure_count": 10,
+        "measurement_count": 14,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 0
+    },
+    {
+        "id": 3,
+        "url": "stackoverflow.com",
+        "anomaly_count": 1,
+        "confirmed_count": 0,
+        "failure_count": 10,
+        "measurement_count": 14,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 0
+    },
+    {
+        "id": 4,
+        "url": "facebook.com",
+        "anomaly_count": 1,
+        "confirmed_count": 0,
+        "failure_count": 10,
+        "measurement_count": 14,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 0
+    },
+    {
+        "anomaly_count": 1,
+        "confirmed_count": 4,
+        "url": "actualidad.rt.com",
+        "failure_count": 10,
+        "measurement_count": 14,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 3,
+        "id": 5
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "addons.mozilla.org",
+        "failure_count": 0,
+        "measurement_count": 20,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 20,
+        "id": 6
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "addons.opera.com",
+        "failure_count": 0,
+        "measurement_count": 18,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 18,
+        "id": 7
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "adium.im",
+        "failure_count": 1,
+        "measurement_count": 53,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 52,
+        "id": 8
+    },
+    {
+        "anomaly_count": 1,
+        "confirmed_count": 0,
+        "url": "adultfriendfinder.com",
+        "failure_count": 0,
+        "measurement_count": 12,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 11,
+        "id": 9
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "advox.globalvoices.org",
+        "failure_count": 0,
+        "measurement_count": 32,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 32,
+        "id": 10
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "afterellen.com",
+        "failure_count": 0,
+        "measurement_count": 44,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 44,
+        "id": 11
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "aidaccess.org",
+        "failure_count": 1,
+        "measurement_count": 24,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 23,
+        "id": 12
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "ajax.aspnetcdn.com",
+        "failure_count": 0,
+        "measurement_count": 27,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 27,
+        "id": 13
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "alignpay.com",
+        "failure_count": 0,
+        "measurement_count": 15,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 15,
+        "id": 14
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "allout.org",
+        "failure_count": 0,
+        "measurement_count": 30,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 30,
+        "id": 15
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "alt.com",
+        "failure_count": 0,
+        "measurement_count": 20,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 20,
+        "id": 16
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "amp.cloudflare.com",
+        "failure_count": 0,
+        "measurement_count": 19,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 19,
+        "id": 17
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "amphetamines.com",
+        "failure_count": 0,
+        "measurement_count": 21,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 21,
+        "id": 18
+    },
+    {
+        "anomaly_count": 0,
+        "confirmed_count": 0,
+        "url": "android.apis.google.com",
+        "failure_count": 0,
+        "measurement_count": 29,
+        "measurement_start_day": "2023-10-13",
+        "ok_count": 29,
+        "id": 19
+
+    }
 
 ]
