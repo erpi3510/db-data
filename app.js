@@ -5,6 +5,10 @@ const PORT = 3003; // Wähle einen beliebigen Port
 const fs = require('fs');
 app.use(express.json());
 const axios = require('axios');
+const jwt = require('jsonwebtoken');
+
+const secretKey = 'IhrGeheimerSchlüssel'; // Dies sollte ein sicherer, zufälliger Schlüssel sein
+
 
 
 // GET-Anfrage, um einen Datensatz basierend auf der ID abzurufen
@@ -68,6 +72,28 @@ app.get('/data/url/:url', (req, res) => {
         res.status(200).json(foundData);
     });
 });
+
+const verifyToken = (req, res, next) => {
+  // Token aus dem Authorization Header extrahieren
+  const bearerHeader = req.headers.authorization;
+
+  if (typeof bearerHeader !== 'undefined') {
+    // Bearer <token>
+    const bearerToken = bearerHeader.split(' ')[1];
+    // Token verifizieren
+    jwt.verify(bearerToken, 'OoaGhGfmKvsE9JtNT', (err, authData) => {
+      if (err) {
+        console.error("Token verification error:", err);
+        return res.status(403).send('Forbidden: Invalid or Expired Token'); // Fehlermeldung an den Client senden
+      }
+      req.authData = authData;
+      next();
+    });
+  } else {
+    // Forbidden, wenn kein Token gesendet wurde
+    res.status(403).send('Forbidden: No Token Provided'); // Kein Token gesendet, daher 403
+  }
+};
 
 
 // POST: Neue URL hinzufügen
@@ -172,6 +198,114 @@ app.get('/open-data', (req, res) => {
         res.status(500).send('Fehler beim Öffnen der Datei');
     }
 });
+
+
+//report
+// Middleware für das Parsen von JSON-Anforderungskörpern
+// Middleware für das Parsen von JSON-Anforderungskörpern
+app.use(bodyParser.json());
+
+// GET-Endpoint für das Abrufen von Daten aus report.json
+app.get('/report', (req, res) => {
+  fs.readFile('report.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Internal Server Error');
+    }
+    res.json(JSON.parse(data));
+  });
+});
+
+app.post('/report', verifyToken, (req, res) => {
+  const { url, date, state } = req.body;
+  
+  fs.readFile('report.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Internal Server Error');
+    }
+    var report;
+    try {
+      report = JSON.parse(data);
+    } catch (error) {
+      // Wenn die Datei nicht geparst werden kann, initialisiere ein leeres Array
+      report = [];
+    }
+    
+    const newEntry = {
+      id: report.length + 1,
+      url: url,
+      date: date,
+      state: state
+    };
+    report.push(newEntry);
+    fs.writeFile('report.json', JSON.stringify(report), 'utf8', (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Internal Server Error');
+      }
+      res.status(201).json(newEntry);
+    });
+  });
+});
+
+
+
+// PUT-Endpoint für das Hinzufügen von Daten zu report.json
+app.put('/report', (req, res) => {
+  const { url, date } = req.body;
+  
+  fs.readFile('report.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Internal Server Error');
+    }
+    const report = JSON.parse(data);
+    const newEntry = {
+      id: report.length + 1,
+      url: url,
+      date: date
+    };
+    report.push(newEntry);
+    fs.writeFile('report.json', JSON.stringify(report), 'utf8', (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Internal Server Error');
+      }
+      res.status(201).json(newEntry);
+    });
+  });
+});
+
+
+// DELETE-Endpoint für das Löschen von Daten aus report.json
+app.delete('/report/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  fs.readFile('report.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Internal Server Error');
+    }
+    const report = JSON.parse(data);
+    const index = report.findIndex(entry => entry.id === id);
+    if (index === -1) {
+      return res.status(404).send('Entry not found');
+    }
+    report.splice(index, 1);
+    fs.writeFile('report.json', JSON.stringify(report), 'utf8', (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Internal Server Error');
+      }
+      res.status(204).send(); // Kein Inhalt zurückgeben
+    });
+  });
+});
+
+
+// end
+
+
 // Starte den Server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
