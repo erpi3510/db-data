@@ -7,7 +7,7 @@ app.use(express.json());
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
 
-const secretKey = 'IhrGeheimerSchlüssel'; // Dies sollte ein sicherer, zufälliger Schlüssel sein
+const secretKey = 'OoaGhGfmKvsE9JtNT'; // Dies sollte ein sicherer, zufälliger Schlüssel sein
 
 
 
@@ -81,7 +81,7 @@ const verifyToken = (req, res, next) => {
     // Bearer <token>
     const bearerToken = bearerHeader.split(' ')[1];
     // Token verifizieren
-    jwt.verify(bearerToken, 'OoaGhGfmKvsE9JtNT', (err, authData) => {
+    jwt.verify(bearerToken, secretKey, (err, authData) => {
       if (err) {
         console.error("Token verification error:", err);
         return res.status(403).send('Forbidden: Invalid or Expired Token'); // Fehlermeldung an den Client senden
@@ -217,7 +217,7 @@ app.get('/report', (req, res) => {
 });
 
 app.post('/report', verifyToken, (req, res) => {
-  const { url, date, state } = req.body;
+  const { url, date, state, time } = req.body;
   
   fs.readFile('report.json', 'utf8', (err, data) => {
     if (err) {
@@ -236,7 +236,8 @@ app.post('/report', verifyToken, (req, res) => {
       id: report.length + 1,
       url: url,
       date: date,
-      state: state
+      state: state,
+      time: time
     };
     report.push(newEntry);
     fs.writeFile('report.json', JSON.stringify(report), 'utf8', (err) => {
@@ -244,7 +245,7 @@ app.post('/report', verifyToken, (req, res) => {
         console.error(err);
         return res.status(500).send('Internal Server Error');
       }
-      res.status(201).json(newEntry);
+      return res.status(201).json(newEntry);
     });
   });
 });
