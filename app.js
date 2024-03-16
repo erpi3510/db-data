@@ -46,31 +46,59 @@ app.get('/urls', (req, res) => {
     });
 });
 
+// GET-Anfrage, um einen Datensatz basierend auf der Domain abzurufen
+app.get('/data/domain/:domain', (req, res) => {
+  const domain = req.params.domain; // Die Domain aus dem Parameter extrahieren
+
+  // Daten aus der JSON-Datei lesen
+  fs.readFile('data.json', 'utf8', (err, data) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).send('Internal Server Error');
+      }
+
+      // JSON-Daten parsen
+      const jsonData = JSON.parse(data);
+
+      // Datensatz mit der angegebenen Domain finden
+      const foundData = jsonData.find(item => item.domain === domain);
+
+      // Überprüfen, ob ein Datensatz gefunden wurde
+      if (!foundData) {
+          return res.status(404).send('Data not found');
+      }
+
+      // Antwort mit dem gefundenen Datensatz senden
+      res.status(200).json(foundData);
+  });
+});
+
+
 // GET-Anfrage, um einen Datensatz basierend auf der URL abzurufen
-app.get('/data/url/:url', (req, res) => {
-    const url = req.params.url; // Die URL aus der URL-Parameter extrahieren
+app.get('/data/urlBlocked/:url', (req, res) => {
+  const url = req.params.url; // Die URL aus der URL-Parameter extrahieren
 
-    // Daten aus der JSON-Datei lesen
-    fs.readFile('data.json', 'utf8', (err, data) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send('Internal Server Error');
-        }
+  // Daten aus der JSON-Datei lesen
+  fs.readFile('blocked.json', 'utf8', (err, data) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).send('Internal Server Error');
+      }
 
-        // JSON-Daten parsen
-        const jsonData = JSON.parse(data);
+      // JSON-Daten parsen
+      const jsonData = JSON.parse(data);
 
-        // Datensatz mit der angegebenen URL finden
-        const foundData = jsonData.find(item => item.url === url);
+      // Datensatz mit der angegebenen URL finden
+      const foundData = jsonData.find(item => item.url === url);
 
-        // Überprüfen, ob ein Datensatz gefunden wurde
-        if (!foundData) {
-            return res.status(404).send('Data not found');
-        }
+      // Überprüfen, ob ein Datensatz gefunden wurde
+      if (!foundData) {
+          return res.status(404).send('Data not found');
+      }
 
-        // Antwort mit dem gefundenen Datensatz senden
-        res.status(200).json(foundData);
-    });
+      // Antwort mit dem gefundenen Datensatz senden
+      res.status(200).json(foundData);
+  });
 });
 
 const verifyToken = (req, res, next) => {
