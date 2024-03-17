@@ -1,185 +1,186 @@
 [
-    {
-        "url": "rt.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "de.rt.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "francais.rt.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "actualidad.rt.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "sputniknews.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "snanews.de",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "deutsch.rt.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "rtde.site",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "rtde.xyz",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "rtde.team",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "test.rtde.live",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "test.rtde.website",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "glaz.tv",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "wwitv.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "a-russia.ru",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "rtde.tech",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "rtde.world",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "rtde.me",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
-    },
-    {
-        "url": "tvc.ru",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "tvci.ru",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "ontvtime.tv",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "vgtrk.ru",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "smotrim.ru",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },{
-        "url": "spbtv.online",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "livehdtv.net",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "freeintertv.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2474#d1e32-240-1"
-    },
-    {
-        "url": "1tv.ru",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2474#d1e32-240-1"
-    },
-    {
-        "url": "ren.tv",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2474#d1e32-240-1"
-    },
-    {
-        "url": "ntv.ru",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2474#d1e32-240-1"
-    },
-    {
-        "url": "ntvmir.ntv.ru",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2474#d1e32-240-1"
-    },
-    {
-        "url": "arabic.rt.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023R0427#d1e32-209-1"
-    },
-    {
-        "url": "rtarabic.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023R0427#d1e32-209-1"
-    },
-    {
-        "url": "ar.rtarabic.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023R0427#d1e32-209-1"
-    },
-    {
-        "url": "sputnikarabic.ae",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023R0427#d1e32-209-1"
-    },
-    {
-        "url": "televizor.media",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "tvc.ru",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "livehdtv.net",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "glaz.tv",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
-    },
-    {
-        "url": "rt.rs",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
-    },
-    {
-        "url": "orientalreview.org",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
-    },
-    {
-        "url": "orientalreview.su",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
-    },
-    {
-        "url": "tsargrad.tv",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
-    },
-    {
-        "url": "live-tv-channels.org",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
-    },
-    {
-        "url": "journal-neo.org",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
-    },
-    {
-        "url": "journal-neo.su",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
-    },
-    {
-        "url": "katehon.com",
-        "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
-    }
+  {
+    "url": "rt.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "de.rt.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "francais.rt.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "actualidad.rt.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "sputnikglobe.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "snanews.de",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "de.rt.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "rtde.site",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "rtde.xyz",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "rtde.team",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "test.rtde.live",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "test.rtde.website",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "glaz.tv",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "wwitv.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "a-russia.ru",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "rtde.tech",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "rtde.world",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "rtde.me",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0350#d1e34-4-1"
+  },
+  {
+    "url": "tvc.ru",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "tvci.ru",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "ontvtime.tv",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "vgtrk.ru",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "smotrim.ru",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "televizormedia.online",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "livehdtv.net",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "freeintertv.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2474#d1e32-240-1"
+  },
+  {
+    "url": "1tv.ru",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2474#d1e32-240-1"
+  },
+  {
+    "url": "ren.tv",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2474#d1e32-240-1"
+  },
+  {
+    "url": "ntv.ru",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2474#d1e32-240-1"
+  },
+  {
+    "url": "ntvmir.ntv.ru",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R2474#d1e32-240-1"
+  },
+  {
+    "url": "arabic.rt.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023R0427#d1e32-209-1"
+  },
+  {
+    "url": "rtarabic.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023R0427#d1e32-209-1"
+  },
+  {
+    "url": "ar.rtarabic.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023R0427#d1e32-209-1"
+  },
+  {
+    "url": "sputnikarabic.ae",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023R0427#d1e32-209-1"
+  },
+  {
+    "url": "televizormedia.online",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "tvc.ru",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "livehdtv.net",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "glaz.tv",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32022R0879#d1e32-71-1"
+  },
+  {
+    "url": "rt.rs",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
+  },
+  {
+    "url": "orientalreview.org",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
+  },
+  {
+    "url": "orientalreview.su",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
+  },
+  {
+    "url": "tsargrad.tv",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
+  },
+  {
+    "url": "live-tv-channels.org",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
+  },
+  {
+    "url": "journal-neo.org",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
+  },
+  {
+    "url": "journal-neo.su",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
+  },
+  {
+    "url": "katehon.com",
+    "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1214#d1e32-228-1"
+  }
 ]
