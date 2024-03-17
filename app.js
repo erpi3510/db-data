@@ -73,6 +73,87 @@ app.get('/data/domain/:domain', (req, res) => {
   });
 });
 
+// GET-Anfrage, um einen Datensatz basierend auf der Domain abzurufen
+app.get('/data/domain/getdata7days/:domain', (req, res) => {
+  const domain = req.params.domain; // Die Domain aus dem Parameter extrahieren
+
+  // Daten aus der JSON-Datei lesen
+  fs.readFile('getdata7days.json', 'utf8', (err, data) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).send('Internal Server Error');
+      }
+
+      // JSON-Daten parsen
+      const jsonData = JSON.parse(data);
+
+      // Datensatz mit der angegebenen Domain finden
+      const foundData = jsonData.find(item => item.domain === domain);
+
+      // Überprüfen, ob ein Datensatz gefunden wurde
+      if (!foundData) {
+          return res.status(404).send('Data not found');
+      }
+
+      // Antwort mit dem gefundenen Datensatz senden
+      res.status(200).json(foundData);
+  });
+});
+
+// GET-Anfrage, um einen Datensatz basierend auf der Domain abzurufen
+app.get('/data/domain/getdata30days/:domain', (req, res) => {
+  const domain = req.params.domain; // Die Domain aus dem Parameter extrahieren
+
+  // Daten aus der JSON-Datei lesen
+  fs.readFile('getdata30days.json', 'utf8', (err, data) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).send('Internal Server Error');
+      }
+
+      // JSON-Daten parsen
+      const jsonData = JSON.parse(data);
+
+      // Datensatz mit der angegebenen Domain finden
+      const foundData = jsonData.find(item => item.domain === domain);
+
+      // Überprüfen, ob ein Datensatz gefunden wurde
+      if (!foundData) {
+          return res.status(404).send('Data not found');
+      }
+
+      // Antwort mit dem gefundenen Datensatz senden
+      res.status(200).json(foundData);
+  });
+});
+
+// GET-Anfrage, um einen Datensatz basierend auf der Domain abzurufen
+app.get('/data/domain/getdata365days/:domain', (req, res) => {
+  const domain = req.params.domain; // Die Domain aus dem Parameter extrahieren
+
+  // Daten aus der JSON-Datei lesen
+  fs.readFile('getdata365days.json', 'utf8', (err, data) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).send('Internal Server Error');
+      }
+
+      // JSON-Daten parsen
+      const jsonData = JSON.parse(data);
+
+      // Datensatz mit der angegebenen Domain finden
+      const foundData = jsonData.find(item => item.domain === domain);
+
+      // Überprüfen, ob ein Datensatz gefunden wurde
+      if (!foundData) {
+          return res.status(404).send('Data not found');
+      }
+
+      // Antwort mit dem gefundenen Datensatz senden
+      res.status(200).json(foundData);
+  });
+});
+
 
 // GET-Anfrage, um einen Datensatz basierend auf der URL abzurufen
 app.get('/data/urlBlocked/:url', (req, res) => {
