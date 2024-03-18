@@ -21,31 +21,45 @@ async function fetchDataAndSave() {
             return;
         }
 
-        // Gruppierte Daten basierend auf der Domain erstellen
-        const groupedData = data.result.reduce((acc, obj) => {
-            // Entfernen Sie "www." aus der Domain, falls vorhanden
+        // Datenarray vorbereiten
+        const preparedData = data.result.map(obj => {
+            // Entfernen von "www." aus der Domain, falls vorhanden
             const domain = obj.domain.startsWith('www.') ? obj.domain.slice(4) : obj.domain;
-            const today = new Date().toISOString().slice(0, 10); // Heutiges Datum als String im Format JJJJ-MM-TT
+            return {
+                ...obj,
+                domain, // Aktualisierte Domain ohne "www."
+                measurement_start_day: new Date(obj.measurement_start_day) // Datum als Date-Objekt speichern
+            };
+        });
 
-            // Wenn die Domain bereits im Akkumulator vorhanden ist, aktualisieren Sie die Zähler
-            if (acc[domain]) {
-                acc[domain].anomaly_count += obj.anomaly_count;
-                acc[domain].confirmed_count += obj.confirmed_count;
-                acc[domain].failure_count += obj.failure_count;
-                acc[domain].measurement_count += obj.measurement_count;
-                acc[domain].ok_count += obj.ok_count;
-            } else {
-                // Ansonsten fügen Sie ein neues Objekt zum Akkumulator hinzu
-                acc[domain] = {
-                    ...obj,
-                    domain,
-                    measurement_start_day: today
+        // Daten nach Domain und Monat gruppieren und Zählungen akkumulieren
+        const groupedData = preparedData.reduce((acc, obj) => {
+            // Key für die Gruppierung erstellen (Domain und Monat)
+            const key = `${obj.domain}_${obj.measurement_start_day.getFullYear()}-${obj.measurement_start_day.getMonth() + 1}`;
+
+            // Überprüfen, ob der Key bereits im Akkumulator existiert, wenn nicht, ein neues Objekt erstellen
+            if (!acc[key]) {
+                acc[key] = {
+                    domain: obj.domain,
+                    month: obj.measurement_start_day.getMonth() + 1, // Monat
+                    year: obj.measurement_start_day.getFullYear(), // Jahr
+                    anomaly_count: 0,
+                    confirmed_count: 0,
+                    failure_count: 0,
+                    measurement_count: 0
                 };
             }
+
+            // Zählungen akkumulieren
+            acc[key].anomaly_count += obj.anomaly_count;
+            acc[key].confirmed_count += obj.confirmed_count;
+            acc[key].failure_count += obj.failure_count;
+            acc[key].measurement_count += obj.measurement_count;
+
             return acc;
         }, {});
 
-        // Konvertiert das Objekt zurück in ein Array von Objekten
+        // Konvertieren des gruppierten Objekts in ein Array
         const groupedDataArray = Object.values(groupedData);
 
         // Daten in die Datei schreiben
@@ -56,6 +70,8 @@ async function fetchDataAndSave() {
         console.error('Fehler beim Abrufen und Speichern der Daten:', error);
     }
 }
+
+
 
 
 

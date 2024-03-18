@@ -88,7 +88,7 @@ app.get('/data/domain/getdata7days/:domain', (req, res) => {
       const jsonData = JSON.parse(data);
 
       // Datensatz mit der angegebenen Domain finden
-      const foundData = jsonData.find(item => item.domain === domain);
+      const foundData = jsonData.filter(item => item.domain === domain);
 
       // Überprüfen, ob ein Datensatz gefunden wurde
       if (!foundData) {
@@ -115,7 +115,7 @@ app.get('/data/domain/getdata30days/:domain', (req, res) => {
       const jsonData = JSON.parse(data);
 
       // Datensatz mit der angegebenen Domain finden
-      const foundData = jsonData.find(item => item.domain === domain);
+      const foundData = jsonData.filter(item => item.domain === domain);
 
       // Überprüfen, ob ein Datensatz gefunden wurde
       if (!foundData) {
@@ -142,7 +142,7 @@ app.get('/data/domain/getdata365days/:domain', (req, res) => {
       const jsonData = JSON.parse(data);
 
       // Datensatz mit der angegebenen Domain finden
-      const foundData = jsonData.find(item => item.domain === domain);
+      const foundData = jsonData.filter(item => item.domain === domain);
 
       // Überprüfen, ob ein Datensatz gefunden wurde
       if (!foundData) {

@@ -21,35 +21,20 @@ async function fetchDataAndSave() {
             return;
         }
 
-        // Gruppierte Daten basierend auf der Domain erstellen
-        const groupedData = data.result.reduce((acc, obj) => {
+        // Bereiten Sie das Datenarray vor, um das heutige Datum für jedes Element hinzuzufügen
+        
+        const updatedDataArray = data.result.map(obj => {
             // Entfernen Sie "www." aus der Domain, falls vorhanden
             const domain = obj.domain.startsWith('www.') ? obj.domain.slice(4) : obj.domain;
-            const today = new Date().toISOString().slice(0, 10); // Heutiges Datum als String im Format JJJJ-MM-TT
-
-            // Wenn die Domain bereits im Akkumulator vorhanden ist, aktualisieren Sie die Zähler
-            if (acc[domain]) {
-                acc[domain].anomaly_count += obj.anomaly_count;
-                acc[domain].confirmed_count += obj.confirmed_count;
-                acc[domain].failure_count += obj.failure_count;
-                acc[domain].measurement_count += obj.measurement_count;
-                acc[domain].ok_count += obj.ok_count;
-            } else {
-                // Ansonsten fügen Sie ein neues Objekt zum Akkumulator hinzu
-                acc[domain] = {
-                    ...obj,
-                    domain,
-                    measurement_start_day: today
-                };
-            }
-            return acc;
-        }, {});
-
-        // Konvertiert das Objekt zurück in ein Array von Objekten
-        const groupedDataArray = Object.values(groupedData);
+            return {
+                ...obj,
+                domain, // Aktualisierte Domain ohne "www."
+                
+            };
+        });
 
         // Daten in die Datei schreiben
-        fs.writeFileSync(filename, JSON.stringify(groupedDataArray, null, 2));
+        fs.writeFileSync(filename, JSON.stringify(updatedDataArray, null, 2));
 
         console.log('Daten wurden erfolgreich gespeichert: ' + filename);
     } catch (error) {
@@ -57,14 +42,11 @@ async function fetchDataAndSave() {
     }
 }
 
-
-
-
 function getDateRange() {
     const today = new Date();
     today.setDate(today.getDate() + 1);
     const sevenDaysAgo = new Date(today);
-    sevenDaysAgo.setDate(today.getDate() - 31); // 7 Tage vom aktuellen Datum subtrahieren
+    sevenDaysAgo.setDate(today.getDate() - 29); // 7 Tage vom aktuellen Datum subtrahieren
 
     const yearSince = sevenDaysAgo.getFullYear();
     let monthSince = sevenDaysAgo.getMonth() + 1; // Monate sind 0-indiziert
