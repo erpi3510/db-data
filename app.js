@@ -46,6 +46,14 @@ app.get('/urls', (req, res) => {
     });
 });
 
+// GET: Alle URLs abrufen
+app.get('/urls/blocked', (req, res) => {
+  fs.readFile('blocked.json', 'utf8', (err, data) => {
+      if (err) throw err;
+      res.json(JSON.parse(data));
+  });
+});
+
 // GET-Anfrage, um einen Datensatz basierend auf der Domain abzurufen
 app.get('/data/domain/:domain', (req, res) => {
   const domain = req.params.domain; // Die Domain aus dem Parameter extrahieren
