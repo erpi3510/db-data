@@ -78,7 +78,7 @@ function getDateRange() {
 fetchDataAndSave();
 
 // Zeitgesteuerten Datenabruf einrichten (um 12 Uhr mittags jeden Tag)
-// cron.schedule('0 12 * * *', () => {
-//     fetchDataAndSave();
-// });
+cron.schedule('0 12 * * *', () => {
+    fetchDataAndSave();
+});
 

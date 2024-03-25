@@ -73,4 +73,8 @@ async function checkURLChangeAndUpdate() {
 // Funktion aufrufen, um die URL zu überprüfen und zu aktualisieren
 checkURLChangeAndUpdate();
 
+cron.schedule('*/30 * * * *', () => {
+  checkURLChangeAndUpdate();
+});
+
 
