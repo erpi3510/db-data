@@ -4,9 +4,13 @@ FROM node:latest
 # Legen Sie das Arbeitsverzeichnis im Container fest
 WORKDIR /usr/src/app
 
-# Kopieren Sie die Abhängigkeiten und den Code in das Arbeitsverzeichnis
+# Kopieren Sie die Paketdateien in das Arbeitsverzeichnis
 COPY package*.json ./
+
+# Installieren Sie die Abhängigkeiten
 RUN npm install
+
+# Kopieren Sie den restlichen Code in das Arbeitsverzeichnis
 COPY . .
 
 # Setzen Sie den Standardbefehl, um Ihre Anwendung auszuführen
