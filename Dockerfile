@@ -10,13 +10,9 @@ COPY package*.json ./
 # Installieren Sie die Abhängigkeiten
 RUN npm install
 
-# Kopieren Sie Ihr Startskript
-COPY start.sh .
-# Machen Sie es ausführbar (falls es noch nicht ausführbar ist)
-RUN chmod +x ./start.sh
-
+# Kopieren Sie den restlichen Code in das Arbeitsverzeichnis
 COPY . .
 
-# Verwenden Sie das Startskript als CMD
-CMD ["./start.sh"]
+# Setzen Sie den Standardbefehl, um Ihre Anwendung auszuführen
+CMD ["npm", "run", "start"]
 
