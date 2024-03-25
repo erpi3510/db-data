@@ -14,4 +14,5 @@ RUN npm install
 COPY . .
 
 # Setzen Sie den Standardbefehl, um Ihre Anwendung auszuführen
-CMD ["node", "app.js"]
+CMD ["npm", "run", "start"]
+
