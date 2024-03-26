@@ -1,15 +1,13 @@
 const axios = require('axios');
 const fs = require('fs');
-const cron = require('node-cron');
-
-// API-URL
-const apiUrl = 'https://api.ooni.io/api/v1/aggregation?probe_cc=DE&'+getDateRange()+'&time_grain=day&axis_x=measurement_start_day&axis_y=domain&test_name=web_connectivity';
+var cron = require('node-cron');
 
 // Dateiname für die gespeicherten Daten
 const filename = 'data.json';
 
 // Funktion zum Abrufen der Daten von der API und Speichern in der Datei
 async function fetchDataAndSave() {
+    var apiUrl = 'https://api.ooni.io/api/v1/aggregation?probe_cc=DE&'+getDateRange()+'&time_grain=day&axis_x=measurement_start_day&axis_y=domain&test_name=web_connectivity';
     try {
         // Daten von der API abrufen
         const response = await axios.get(apiUrl);

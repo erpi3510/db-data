@@ -1,6 +1,6 @@
 const axios = require('axios');
 const fs = require('fs');
-const cron = require('node-cron');
+var cron = require('node-cron');
 
 // API-URL
 const apiUrl = 'https://api.ooni.io/api/_/countries';

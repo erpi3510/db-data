@@ -1,7 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const { URL } = require('url');
-const cron = require('node-cron');
+var cron = require('node-cron');
 
 // Funktion zum Lesen der Daten aus der blocked.json-Datei
 function readBlockedData() {
