@@ -9,7 +9,8 @@ COPY package*.json ./
 
 # Installieren Sie die Abhängigkeiten
 RUN npm install
-
+RUN apt-get update && apt-get install -y nano
+RUN apt-get install tmux
 # Kopieren Sie den restlichen Code in das Arbeitsverzeichnis
 COPY . .
 
