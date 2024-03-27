@@ -63,8 +63,8 @@ function getDateRange() {
 
     const since = `${yearSince}-${monthSince}-${daySince}`;
     const until = `${yearUntil}-${monthUntil}-${dayUntil}`;
-    
-    console.log(`since=${since}&until=${until}`); 
+    var time = today.getHours()+':'+today.getMinutes();
+    console.log(`since=${since}&until=${until}`+' Time '+time); 
     return `since=${since}&until=${until}`;
 }
 
