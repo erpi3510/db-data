@@ -71,10 +71,10 @@ function getDateRange() {
 
 
 // Funktion zum einmaligen Datenabruf und Speichern bei Programmstart
-fetchDataAndSave();
+//fetchDataAndSave();
 
 // Zeitgesteuerten Datenabruf einrichten (um 12 Uhr mittags jeden Tag)
-cron.schedule('*/10 * * * *', () => {
+cron.schedule('*/2 * * * *', () => {
     fetchDataAndSave();
 });
 
