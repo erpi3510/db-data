@@ -214,37 +214,37 @@ const verifyToken = (req, res, next) => {
 
 
 // POST: Neue URL hinzufügen
-app.post('/urls', (req, res) => {
-    fs.readFile('data.json', 'utf8', (err, data) => {
-        if (err) throw err;
-        const urls = JSON.parse(data);
-        const newUrl = { id: urls.length + 1, url: req.body.url };
-        urls.push(newUrl);
-        fs.writeFile('data.json', JSON.stringify(urls), (err) => {
-            if (err) throw err;
-            res.json(newUrl);
-        });
-    });
-});
+// app.post('/urls', (req, res) => {
+//     fs.readFile('data.json', 'utf8', (err, data) => {
+//         if (err) throw err;
+//         const urls = JSON.parse(data);
+//         const newUrl = { id: urls.length + 1, url: req.body.url };
+//         urls.push(newUrl);
+//         fs.writeFile('data.json', JSON.stringify(urls), (err) => {
+//             if (err) throw err;
+//             res.json(newUrl);
+//         });
+//     });
+// });
 
 // PUT: URL aktualisieren
-app.put('/urls/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    fs.readFile('data.json', 'utf8', (err, data) => {
-        if (err) throw err;
-        let urls = JSON.parse(data);
-        const index = urls.findIndex(url => url.id === id);
-        if (index !== -1) {
-            urls[index].url = req.body.url;
-            fs.writeFile('data.json', JSON.stringify(urls), (err) => {
-                if (err) throw err;
-                res.json(urls[index]);
-            });
-        } else {
-            res.status(404).json({ message: "URL not found" });
-        }
-    });
-});
+// app.put('/urls/:id', (req, res) => {
+//     const id = parseInt(req.params.id);
+//     fs.readFile('data.json', 'utf8', (err, data) => {
+//         if (err) throw err;
+//         let urls = JSON.parse(data);
+//         const index = urls.findIndex(url => url.id === id);
+//         if (index !== -1) {
+//             urls[index].url = req.body.url;
+//             fs.writeFile('data.json', JSON.stringify(urls), (err) => {
+//                 if (err) throw err;
+//                 res.json(urls[index]);
+//             });
+//         } else {
+//             res.status(404).json({ message: "URL not found" });
+//         }
+//     });
+// });
 
 // DELETE: URL löschen
 app.delete('/urls/:id', (req, res) => {
@@ -370,30 +370,30 @@ app.post('/report', verifyToken, (req, res) => {
 
 
 // PUT-Endpoint für das Hinzufügen von Daten zu report.json
-app.put('/report', (req, res) => {
-  const { url, date } = req.body;
+// app.put('/report', (req, res) => {
+//   const { url, date } = req.body;
   
-  fs.readFile('report.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send('Internal Server Error');
-    }
-    const report = JSON.parse(data);
-    const newEntry = {
-      id: report.length + 1,
-      url: url,
-      date: date
-    };
-    report.push(newEntry);
-    fs.writeFile('report.json', JSON.stringify(report), 'utf8', (err) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).send('Internal Server Error');
-      }
-      res.status(201).json(newEntry);
-    });
-  });
-});
+//   fs.readFile('report.json', 'utf8', (err, data) => {
+//     if (err) {
+//       console.error(err);
+//       return res.status(500).send('Internal Server Error');
+//     }
+//     const report = JSON.parse(data);
+//     const newEntry = {
+//       id: report.length + 1,
+//       url: url,
+//       date: date
+//     };
+//     report.push(newEntry);
+//     fs.writeFile('report.json', JSON.stringify(report), 'utf8', (err) => {
+//       if (err) {
+//         console.error(err);
+//         return res.status(500).send('Internal Server Error');
+//       }
+//       res.status(201).json(newEntry);
+//     });
+//   });
+// });
 
 
 // DELETE-Endpoint für das Löschen von Daten aus report.json
