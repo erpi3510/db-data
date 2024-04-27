@@ -316,9 +316,6 @@ app.get('/open-data', (req, res) => {
     }
 });
 
-
-//report
-// Middleware für das Parsen von JSON-Anforderungskörpern
 // Middleware für das Parsen von JSON-Anforderungskörpern
 app.use(bodyParser.json());
 
