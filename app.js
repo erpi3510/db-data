@@ -11,12 +11,12 @@ const path = require('path');
 const secretKey = 'OoaGhGfmKvsE9JtNT'; // Dies sollte ein sicherer, zufälliger Schlüssel sein
 
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'Public')));
 
 // Routenbehandlung für die Root-URL
 app.get('/', (req, res) => {
   // Wenn jemand die Root-URL aufruft, wird die index.html im "public" Verzeichnis serviert
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'Public', 'index.html'));
 });
 
 // GET-Anfrage, um einen Datensatz basierend auf der ID abzurufen
