@@ -6,10 +6,18 @@ const fs = require('fs');
 app.use(express.json());
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 
 const secretKey = 'OoaGhGfmKvsE9JtNT'; // Dies sollte ein sicherer, zufälliger Schlüssel sein
 
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routenbehandlung für die Root-URL
+app.get('/', (req, res) => {
+  // Wenn jemand die Root-URL aufruft, wird die index.html im "public" Verzeichnis serviert
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // GET-Anfrage, um einen Datensatz basierend auf der ID abzurufen
 app.get('/data/:id', (req, res) => {
