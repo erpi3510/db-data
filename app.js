@@ -10,7 +10,6 @@ const path = require('path');
 
 const secretKey = 'OoaGhGfmKvsE9JtNT'; // Dies sollte ein sicherer, zufälliger Schlüssel sein
 
-
 app.use(express.static(path.join(__dirname, 'Public')));
 
 // Routenbehandlung für die Root-URL
