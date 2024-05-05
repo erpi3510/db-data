@@ -1,3 +1,7 @@
-.rounded{
+.rounded {
     border-radius:50% !important; 
 }
+
+/* .btn-outline-primary {
+    --bs-btn-hover-bg:  #343a40  !important;
+} */
