@@ -18,6 +18,16 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'Public', 'index.html'));
 });
 
+app.get('/pdf/en', (req, res) => {
+  const pdfPath = 'privacy_en.pdf';
+  res.sendFile(path.join(__dirname, 'pdf', pdfPath));
+});
+
+app.get('/pdf/de', (req, res) => {
+  const pdfPath = 'privacy_de.pdf';
+  res.sendFile(path.join(__dirname, 'pdf', pdfPath));
+});
+
 // GET-Anfrage, um einen Datensatz basierend auf der ID abzurufen
 app.get('/data/:id', (req, res) => {
     const id = parseInt(req.params.id); // Die ID aus der URL-Parameter extrahieren
