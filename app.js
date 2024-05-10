@@ -18,6 +18,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'Public', 'index.html'));
 });
 
+app.get('/en', (req, res) => {
+  // Wenn jemand die Root-URL aufruft, wird die index.html im "public" Verzeichnis serviert
+  res.sendFile(path.join(__dirname, 'Public', 'index_en.html'));
+});
+
 app.get('/pdf/en', (req, res) => {
   const pdfPath = 'privacy_en.pdf';
   res.sendFile(path.join(__dirname, 'pdf', pdfPath));
