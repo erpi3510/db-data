@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 var cron = require('node-cron');
+const { getDateRange } = require('./utils/dateRange');
 
 // Dateiname für die gespeicherten Daten
 const filename = 'db/getdata30days.json';
@@ -8,7 +9,7 @@ const filename = 'db/getdata30days.json';
 
 
 async function fetchDataAndSave() {
-    var apiUrl = 'https://api.ooni.io/api/v1/aggregation?probe_cc=DE&'+getDateRange()+'&time_grain=day&axis_x=measurement_start_day&axis_y=domain&test_name=web_connectivity';
+    var apiUrl = 'https://api.ooni.io/api/v1/aggregation?probe_cc=DE&'+getDateRange(29)+'&time_grain=day&axis_x=measurement_start_day&axis_y=domain&test_name=web_connectivity';
 
     try {
         // Daten von der API abrufen
@@ -41,38 +42,6 @@ async function fetchDataAndSave() {
         console.error('Fehler beim Abrufen und Speichern der Daten:', error);
     }
 }
-
-function getDateRange() {
-    const today = new Date();
-    today.setDate(today.getDate() + 1);
-    const sevenDaysAgo = new Date(today);
-    sevenDaysAgo.setDate(today.getDate() - 29); // 7 Tage vom aktuellen Datum subtrahieren
-
-    const yearSince = sevenDaysAgo.getFullYear();
-    let monthSince = sevenDaysAgo.getMonth() + 1; // Monate sind 0-indiziert
-    let daySince = sevenDaysAgo.getDate();
-
-    // Führende Nullen hinzufügen, wenn der Monat oder Tag einstellig ist
-    monthSince = monthSince < 10 ? '0' + monthSince : monthSince;
-    daySince = daySince < 10 ? '0' + daySince : daySince;
-
-    const yearUntil = today.getFullYear();
-    let monthUntil = today.getMonth() + 1; // Monate sind 0-indiziert
-    let dayUntil = today.getDate();
-
-    // Führende Nullen hinzufügen, wenn der Monat oder Tag einstellig ist
-    monthUntil = monthUntil < 10 ? '0' + monthUntil : monthUntil;
-    dayUntil = dayUntil < 10 ? '0' + dayUntil : dayUntil;
-
-    const since = `${yearSince}-${monthSince}-${daySince}`;
-    const until = `${yearUntil}-${monthUntil}-${dayUntil}`;
-    
-    console.log(`since=${since}&until=${until}`);
-    return `since=${since}&until=${until}`;
-}
-
-
-
 
 // Funktion zum einmaligen Datenabruf und Speichern bei Programmstart
 fetchDataAndSave();
