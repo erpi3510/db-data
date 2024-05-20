@@ -6,7 +6,7 @@ var cron = require('node-cron');
 const apiUrl = 'https://api.ooni.io/api/_/countries';
 
 // Dateiname für die gespeicherten Daten
-const filename = 'countrydata.json';
+const filename = 'db/countrydata.json';
 
 // Funktion zum Abrufen der Daten von der API und Speichern in der Datei
 async function fetchDataAndSave() {

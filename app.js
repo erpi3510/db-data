@@ -38,7 +38,7 @@ app.get('/data/:id', (req, res) => {
     const id = parseInt(req.params.id); // Die ID aus der URL-Parameter extrahieren
 
     // Daten aus der JSON-Datei lesen
-    fs.readFile('data.json', 'utf8', (err, data) => {
+    fs.readFile('db/data.json', 'utf8', (err, data) => {
         if (err) {
             console.error(err);
             return res.status(500).send('Internal Server Error');
@@ -62,7 +62,7 @@ app.get('/data/:id', (req, res) => {
 
 // GET: Alle URLs abrufen
 app.get('/urls', (req, res) => {
-    fs.readFile('data.json', 'utf8', (err, data) => {
+    fs.readFile('db/data.json', 'utf8', (err, data) => {
         if (err) throw err;
         res.json(JSON.parse(data));
     });
@@ -70,7 +70,7 @@ app.get('/urls', (req, res) => {
 
 // GET: Alle URLs abrufen
 app.get('/urls/blocked', (req, res) => {
-  fs.readFile('blocked.json', 'utf8', (err, data) => {
+  fs.readFile('db/blocked.json', 'utf8', (err, data) => {
       if (err) throw err;
       res.json(JSON.parse(data));
   });
@@ -81,7 +81,7 @@ app.get('/data/domain/:domain', (req, res) => {
   const domain = req.params.domain; // Die Domain aus dem Parameter extrahieren
 
   // Daten aus der JSON-Datei lesen
-  fs.readFile('data.json', 'utf8', (err, data) => {
+  fs.readFile('db/data.json', 'utf8', (err, data) => {
       if (err) {
           console.error(err);
           return res.status(500).send('Internal Server Error');
@@ -108,7 +108,7 @@ app.get('/data/domain/getdata7days/:domain', (req, res) => {
   const domain = req.params.domain; // Die Domain aus dem Parameter extrahieren
 
   // Daten aus der JSON-Datei lesen
-  fs.readFile('getdata7days.json', 'utf8', (err, data) => {
+  fs.readFile('db/getdata7days.json', 'utf8', (err, data) => {
       if (err) {
           console.error(err);
           return res.status(500).send('Internal Server Error');
@@ -135,7 +135,7 @@ app.get('/data/domain/getdata30days/:domain', (req, res) => {
   const domain = req.params.domain; // Die Domain aus dem Parameter extrahieren
 
   // Daten aus der JSON-Datei lesen
-  fs.readFile('getdata30days.json', 'utf8', (err, data) => {
+  fs.readFile('db/getdata30days.json', 'utf8', (err, data) => {
       if (err) {
           console.error(err);
           return res.status(500).send('Internal Server Error');
@@ -162,7 +162,7 @@ app.get('/data/domain/getdata365days/:domain', (req, res) => {
   const domain = req.params.domain; // Die Domain aus dem Parameter extrahieren
 
   // Daten aus der JSON-Datei lesen
-  fs.readFile('getdata365days.json', 'utf8', (err, data) => {
+  fs.readFile('db/getdata365days.json', 'utf8', (err, data) => {
       if (err) {
           console.error(err);
           return res.status(500).send('Internal Server Error');
@@ -190,7 +190,7 @@ app.get('/data/urlBlocked/:url', (req, res) => {
   const url = req.params.url; // Die URL aus der URL-Parameter extrahieren
 
   // Daten aus der JSON-Datei lesen
-  fs.readFile('blocked.json', 'utf8', (err, data) => {
+  fs.readFile('db/blocked.json', 'utf8', (err, data) => {
       if (err) {
           console.error(err);
           return res.status(500).send('Internal Server Error');
@@ -237,12 +237,12 @@ const verifyToken = (req, res, next) => {
 
 // POST: Neue URL hinzufügen
 // app.post('/urls', (req, res) => {
-//     fs.readFile('data.json', 'utf8', (err, data) => {
+//     fs.readFile('db/data.json', 'utf8', (err, data) => {
 //         if (err) throw err;
 //         const urls = JSON.parse(data);
 //         const newUrl = { id: urls.length + 1, url: req.body.url };
 //         urls.push(newUrl);
-//         fs.writeFile('data.json', JSON.stringify(urls), (err) => {
+//         fs.writeFile('db/data.json', JSON.stringify(urls), (err) => {
 //             if (err) throw err;
 //             res.json(newUrl);
 //         });
@@ -252,13 +252,13 @@ const verifyToken = (req, res, next) => {
 // PUT: URL aktualisieren
 // app.put('/urls/:id', (req, res) => {
 //     const id = parseInt(req.params.id);
-//     fs.readFile('data.json', 'utf8', (err, data) => {
+//     fs.readFile('db/data.json', 'utf8', (err, data) => {
 //         if (err) throw err;
 //         let urls = JSON.parse(data);
 //         const index = urls.findIndex(url => url.id === id);
 //         if (index !== -1) {
 //             urls[index].url = req.body.url;
-//             fs.writeFile('data.json', JSON.stringify(urls), (err) => {
+//             fs.writeFile('db/data.json', JSON.stringify(urls), (err) => {
 //                 if (err) throw err;
 //                 res.json(urls[index]);
 //             });
@@ -271,12 +271,12 @@ const verifyToken = (req, res, next) => {
 // DELETE: URL löschen
 app.delete('/urls/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    fs.readFile('data.json', 'utf8', (err, data) => {
+    fs.readFile('db/data.json', 'utf8', (err, data) => {
         if (err) throw err;
         let urls = JSON.parse(data);
         const filteredUrls = urls.filter(url => url.id !== id);
         if (filteredUrls.length !== urls.length) {
-            fs.writeFile('data.json', JSON.stringify(filteredUrls), (err) => {
+            fs.writeFile('db/data.json', JSON.stringify(filteredUrls), (err) => {
                 if (err) throw err;
                 res.json({ message: "URL deleted successfully" });
             });
@@ -343,7 +343,7 @@ app.use(bodyParser.json());
 
 // GET-Endpoint für das Abrufen von Daten aus report.json
 app.get('/report', (req, res) => {
-  fs.readFile('report.json', 'utf8', (err, data) => {
+  fs.readFile('db/report.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       return res.status(500).send('Internal Server Error');
@@ -355,7 +355,7 @@ app.get('/report', (req, res) => {
 app.post('/report', verifyToken, (req, res) => {
   const { url, date, state, time } = req.body;
   
-  fs.readFile('report.json', 'utf8', (err, data) => {
+  fs.readFile('db/report.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       return res.status(500).send('Internal Server Error');
@@ -376,7 +376,7 @@ app.post('/report', verifyToken, (req, res) => {
       time: time
     };
     report.push(newEntry);
-    fs.writeFile('report.json', JSON.stringify(report), 'utf8', (err) => {
+    fs.writeFile('db/report.json', JSON.stringify(report), 'utf8', (err) => {
       if (err) {
         console.error(err);
         return res.status(500).send('Internal Server Error');
@@ -392,7 +392,7 @@ app.post('/report', verifyToken, (req, res) => {
 // app.put('/report', (req, res) => {
 //   const { url, date } = req.body;
   
-//   fs.readFile('report.json', 'utf8', (err, data) => {
+//   fs.readFile('db/report.json', 'utf8', (err, data) => {
 //     if (err) {
 //       console.error(err);
 //       return res.status(500).send('Internal Server Error');
@@ -404,7 +404,7 @@ app.post('/report', verifyToken, (req, res) => {
 //       date: date
 //     };
 //     report.push(newEntry);
-//     fs.writeFile('report.json', JSON.stringify(report), 'utf8', (err) => {
+//     fs.writeFile('db/report.json', JSON.stringify(report), 'utf8', (err) => {
 //       if (err) {
 //         console.error(err);
 //         return res.status(500).send('Internal Server Error');
@@ -418,7 +418,7 @@ app.post('/report', verifyToken, (req, res) => {
 // DELETE-Endpoint für das Löschen von Daten aus report.json
 app.delete('/report/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  fs.readFile('report.json', 'utf8', (err, data) => {
+  fs.readFile('db/report.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       return res.status(500).send('Internal Server Error');
@@ -429,7 +429,7 @@ app.delete('/report/:id', (req, res) => {
       return res.status(404).send('Entry not found');
     }
     report.splice(index, 1);
-    fs.writeFile('report.json', JSON.stringify(report), 'utf8', (err) => {
+    fs.writeFile('db/report.json', JSON.stringify(report), 'utf8', (err) => {
       if (err) {
         console.error(err);
         return res.status(500).send('Internal Server Error');

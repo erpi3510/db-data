@@ -3,7 +3,8 @@ const fs = require('fs');
 var cron = require('node-cron');
 
 // Dateiname für die gespeicherten Daten
-const filename = 'data.json';
+
+const filename = 'db/data.json';
 
 // Funktion zum Abrufen der Daten von der API und Speichern in der Datei
 async function fetchDataAndSave() {

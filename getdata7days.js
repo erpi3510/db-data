@@ -3,7 +3,7 @@ const fs = require('fs');
 var cron = require('node-cron');
 
 // Dateiname für die gespeicherten Daten
-const filename = 'getdata7days.json';
+const filename = 'db/getdata7days.json';
 
 
 async function fetchDataAndSave() {

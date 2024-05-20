@@ -7,7 +7,7 @@ var cron = require('node-cron');
 function readBlockedData() {
   try {
     // Daten aus der JSON-Datei lesen
-    const data = fs.readFileSync('primaryBlocked.json', 'utf8');
+    const data = fs.readFileSync('db/primaryBlocked.json', 'utf8');
     return JSON.parse(data);
   } catch (error) {
     console.error('Fehler beim Lesen der primaryBlocked.json-Datei:', error.message);
@@ -27,10 +27,10 @@ function writeBlockedData(blockedData) {
     });
 
     // Daten in die JSON-Datei schreiben
-    fs.writeFileSync('blocked.json', JSON.stringify(cleanedData, null, 2), 'utf8');
-    console.log('blocked.json erfolgreich aktualisiert.');
+    fs.writeFileSync('db/blocked.json', JSON.stringify(cleanedData, null, 2), 'utf8');
+    console.log('db/blocked.json erfolgreich aktualisiert.');
   } catch (error) {
-    console.error('Fehler beim Schreiben in die blocked.json-Datei:', error.message);
+    console.error('Fehler beim Schreiben in die db/blocked.json-Datei:', error.message);
   }
 }
 
