@@ -22,9 +22,11 @@ function getDateRange(days) {
 
     const since = `${yearSince}-${monthSince}-${daySince}`;
     const until = `${yearUntil}-${monthUntil}-${dayUntil}`;
+    var time = today.getHours()+':'+today.getMinutes();
     
-    console.log(`since=${since}&until=${until}`);
+    console.log(`since=${since}&until=${until}&time=${time}`);
     return `since=${since}&until=${until}`;
+    
 }
 
 module.exports = { getDateRange };

@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 var cron = require('node-cron');
+const { getDateRange } = require('./utils/dateRange');
 
 // Dateiname für die gespeicherten Daten
 
@@ -8,7 +9,7 @@ const filename = 'db/data.json';
 
 // Funktion zum Abrufen der Daten von der API und Speichern in der Datei
 async function fetchDataAndSave() {
-    var apiUrl = 'https://api.ooni.io/api/v1/aggregation?probe_cc=DE&'+getDateRange()+'&time_grain=day&axis_x=measurement_start_day&axis_y=domain&test_name=web_connectivity';
+    var apiUrl = 'https://api.ooni.io/api/v1/aggregation?probe_cc=DE&'+getDateRange(1)+'&time_grain=day&axis_x=measurement_start_day&axis_y=domain&test_name=web_connectivity';
     try {
         // Daten von der API abrufen
         const response = await axios.get(apiUrl);
@@ -38,38 +39,6 @@ async function fetchDataAndSave() {
         console.error('Fehler beim Abrufen und Speichern der Daten:', error);
     }
 }
-
-
-
-function getDateRange() {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1); // Ein Tag zum aktuellen Datum hinzufügen
-
-    const yearSince = today.getFullYear();
-    let monthSince = today.getMonth() + 1;
-    let daySince = today.getDate();
-
-    // Führende Nullen hinzufügen, wenn der Monat oder Tag einstellig ist
-    monthSince = monthSince < 10 ? '0' + monthSince : monthSince;
-    daySince = daySince < 10 ? '0' + daySince : daySince;
-
-    const yearUntil = tomorrow.getFullYear();
-    let monthUntil = tomorrow.getMonth() + 1;
-    let dayUntil = tomorrow.getDate();
-
-    // Führende Nullen hinzufügen, wenn der Monat oder Tag einstellig ist
-    monthUntil = monthUntil < 10 ? '0' + monthUntil : monthUntil;
-    dayUntil = dayUntil < 10 ? '0' + dayUntil : dayUntil;
-
-    const since = `${yearSince}-${monthSince}-${daySince}`;
-    const until = `${yearUntil}-${monthUntil}-${dayUntil}`;
-    var time = today.getHours()+':'+today.getMinutes();
-    console.log(`since=${since}&until=${until}`+' Time '+time); 
-    return `since=${since}&until=${until}`;
-}
-
-
 
 // Funktion zum einmaligen Datenabruf und Speichern bei Programmstart
 //fetchDataAndSave();
